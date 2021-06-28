@@ -1,0 +1,4 @@
+/* Bootstrap override methods */
+.bg-dark{
+    background-color: #242424 !important;
+}

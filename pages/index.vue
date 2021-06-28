@@ -1,26 +1,16 @@
 <template>
   <div class="container">
     <div>
-      <Logo />
       <h1 class="title">
         consequence-frontend
       </h1>
       <div class="links">
         <a
-          href="https://nuxtjs.org/"
-          target="_blank"
+          v-bind:href="connectBankURI"
           rel="noopener noreferrer"
-          class="button--green"
+          class="btn btn-primary"
         >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
+          Connect Bank
         </a>
       </div>
     </div>
@@ -28,7 +18,15 @@
 </template>
 
 <script>
-export default {}
+
+
+export default {
+  data(){
+    return {
+      connectBankURI: `${this.$config.truelayerAuthBase}/?response_type=${this.$config.truelayerResponseType}&client_id=${this.$config.truelayerClientID}&scope=${this.$config.truelayerScope}&redirect_uri=${this.$config.truelayerRedirectURI}&providers=${this.$config.truelayerProviders}`
+    }
+  }
+}
 </script>
 
 <style>
