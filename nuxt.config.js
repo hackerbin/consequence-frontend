@@ -39,14 +39,13 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  env: {
-    baseUrl: process.env.BASE_URL || "http://localhost:8000",
+  publicRuntimeConfig: {
     truelayerAuthBase:
       process.env.TRUELAYER_AUTH_BASE || "https://auth.truelayer-sandbox.com",
     truelayerResponseType: "code",
     truelayerClientID:
       process.env.TRUELAYER_CLIENT_ID || "sandbox-consequence-fd977d",
-    truelayerSecret:
+    truelayerScope:
       "info accounts balance cards transactions direct_debits standing_orders offline_access",
     truelayerRedirectURI:
       process.env.TRUELAYER_REDIRECT_URI || "http://localhost:8000/callback",

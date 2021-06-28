@@ -6,7 +6,7 @@
       </h1>
       <div class="links">
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          v-bind:href="connectBankURI"
           rel="noopener noreferrer"
           class="btn btn-primary"
         >
@@ -18,7 +18,15 @@
 </template>
 
 <script>
-export default {}
+
+
+export default {
+  data(){
+    return {
+      connectBankURI: `${this.$config.truelayerAuthBase}/?response_type=${this.$config.truelayerResponseType}&client_id=${this.$config.truelayerClientID}&scope=${this.$config.truelayerScope}&redirect_uri=${this.$config.truelayerRedirectURI}&providers=${this.$config.truelayerProviders}`
+    }
+  }
+}
 </script>
 
 <style>
