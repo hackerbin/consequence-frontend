@@ -1,27 +1,12 @@
 <template>
   <div class="container">
-    <div>
-      <h1 class="title">
-        consequence-frontend
-      </h1>
-      <div class="links">
-        <a
-          v-bind:href="connectBankURI"
-          rel="noopener noreferrer"
-          class="btn btn-primary"
-        >
-          Connect Bank
-        </a>
-      </div>
-    </div>
+    <h1 class="title">Login Page</h1>
   </div>
 </template>
 
 <script>
-
-
 export default {
-  auth: true,
+  
   data(){
     return {
       connectBankURI: `${this.$config.truelayerAuthBase}/?response_type=${this.$config.truelayerResponseType}&client_id=${this.$config.truelayerClientID}&scope=${this.$config.truelayerScope}&redirect_uri=${this.$config.truelayerRedirectURI}&providers=${this.$config.truelayerProviders}`

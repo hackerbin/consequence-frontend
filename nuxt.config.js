@@ -30,7 +30,9 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     "bootstrap-vue/nuxt",
     // https://go.nuxtjs.dev/axios
-    "@nuxtjs/axios"
+    "@nuxtjs/axios",
+    // https://auth.nuxtjs.org
+    '@nuxtjs/auth-next'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -54,5 +56,18 @@ export default {
 
   server: {
     port: 8000 // default: 3000
+  },
+
+  router: {
+    middleware: ['auth']
+  },
+
+  auth: {
+    redirect: {
+      login: '/login',
+      logout: '/',
+      callback: '/',
+      home: '/'
+    }
   }
 };
