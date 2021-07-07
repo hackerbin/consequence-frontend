@@ -32,11 +32,27 @@ export default {
     // https://go.nuxtjs.dev/axios
     "@nuxtjs/axios",
     // https://auth.nuxtjs.org
-    '@nuxtjs/auth-next'
+    "@nuxtjs/auth-next",
+    "@nuxtjs/toast"
   ],
 
+  toast: {
+    position: "top-right",
+    register: [
+      // Register custom toasts
+      {
+        name: "my-error",
+        message: "Oops...Something went wrong",
+        options: {
+          type: "error"
+        }
+      }
+    ]
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: process.env.API_BASE_URL || "http://localhost:8010"
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
@@ -59,15 +75,35 @@ export default {
   },
 
   router: {
-    middleware: ['auth']
+    middleware: ["auth"]
   },
 
   auth: {
     redirect: {
-      login: '/login',
-      logout: '/',
-      callback: '/',
-      home: '/'
+      login: "/login",
+      logout: "/logout",
+      callback: "/callback",
+      home: "/"
+    },
+    watchLoggedIn: true,
+    strategies: {
+      local: {
+        token: {
+          property: "token",
+          global: true,
+          // required: true,
+          type: "Token"
+        },
+        user: {
+          property: "user"
+          // autoFetch: true
+        },
+        endpoints: {
+          login: { url: "/api/auth/login", method: "post", redirect: '/' },
+          logout: { url: "/api/auth/logout", method: "get", redirect: '/login' },
+          user: { url: "/api/auth/user", method: "get" }
+        }
+      }
     }
   }
 };

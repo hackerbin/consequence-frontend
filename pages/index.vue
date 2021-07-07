@@ -8,10 +8,11 @@
         <a
           v-bind:href="connectBankURI"
           rel="noopener noreferrer"
-          class="btn btn-primary"
+          class="btn btn-primary btn--csq"
         >
           Connect Bank
         </a>
+        
       </div>
     </div>
   </div>

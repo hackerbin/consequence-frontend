@@ -1,4 +1,55 @@
 /* Bootstrap override methods */
-.bg-dark{
+
+html, nav {
     background-color: #242424 !important;
+    color: white;
+}
+
+nav{
+    background-color: #1C1C1C;
+}
+
+
+html, body, div{
+    font-family: Cerebri Sans;
+    font-style: normal;
+    font-weight: normal;
+}
+
+h1, h2, h3, h4, h5, h6, p{
+    font-family: Cerebri Sans;
+    font-style: normal;
+    font-weight: normal;
+    background-color: #242424;
+    color: #F2F2F2;
+}
+
+
+body{
+    background-color: #242424;
+    color: #FFFFFF;
+}
+
+div{
+    background-color: #242424;
+    color: #FFFFFF;
+}
+
+.navbar, .navbar-collapse{
+    background-color: #1C1C1C !important;
+    color: white;
+}
+
+.btn--csq{
+    background-color: #F1113B;
+    color: #FFFFFF;
+    border-radius: 4px;
+    border-color: #F1113B;
+}
+
+.btn--csq:hover{
+    background-color: #FFFFFF; 
+    color: #F1113B;
+    border-radius: 4px;
+    border-color: #F1113B;
 }
